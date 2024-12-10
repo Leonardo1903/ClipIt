@@ -1,5 +1,38 @@
 import { Globe, Shield, Zap, Clipboard, Link, BarChart2 } from "lucide-react";
 
+const features = [
+  {
+    icon: Globe,
+    title: "Global Reach",
+    description: "Share your links worldwide with localized tracking",
+  },
+  {
+    icon: Shield,
+    title: "Secure & Reliable",
+    description: "Your data and links are protected with top-notch security",
+  },
+  {
+    icon: Zap,
+    title: "Lightning Fast",
+    description: "Instant URL shortening and redirection for optimal performance",
+  },
+  {
+    icon: Clipboard,
+    title: "Easy to Use",
+    description: "Shorten URLs with just a click",
+  },
+  {
+    icon: Link,
+    title: "Custom Links",
+    description: "Create branded short links",
+  },
+  {
+    icon: BarChart2,
+    title: "Detailed Analytics",
+    description: "Track clicks and engagement",
+  },
+];
+
 export default function Features() {
   return (
     <div className="my-16">
@@ -7,40 +40,7 @@ export default function Features() {
         Why Choose ClipIt?
       </h3>
       <div className="grid md:grid-cols-3 gap-8">
-        {[
-          {
-            icon: Globe,
-            title: "Global Reach",
-            description: "Share your links worldwide with localized tracking",
-          },
-          {
-            icon: Shield,
-            title: "Secure & Reliable",
-            description:
-              "Your data and links are protected with top-notch security",
-          },
-          {
-            icon: Zap,
-            title: "Lightning Fast",
-            description:
-              "Instant URL shortening and redirection for optimal performance",
-          },
-          {
-            icon: Clipboard,
-            title: "Easy to Use",
-            description: "Shorten URLs with just a click",
-          },
-          {
-            icon: Link,
-            title: "Custom Links",
-            description: "Create branded short links",
-          },
-          {
-            icon: BarChart2,
-            title: "Detailed Analytics",
-            description: "Track clicks and engagement",
-          },
-        ].map((feature, index) => (
+        {features.map((feature, index) => (
           <div
             key={index}
             className="bg-emerald-800/50 backdrop-blur-sm rounded-lg p-6"
