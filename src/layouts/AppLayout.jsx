@@ -1,4 +1,4 @@
-import { Header } from "@/components";
+import { Header, Footer } from "@/components";
 import { Outlet } from "react-router-dom";
 
 export default function AppLayout() {
@@ -8,7 +8,7 @@ export default function AppLayout() {
         <Header />
         <Outlet />
       </main>
-      <div className="p-10 text-center bg-gray-800 mt-10">Made with ❤️</div>
+      <Footer />
     </>
   );
 }
