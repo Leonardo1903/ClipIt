@@ -1,4 +1,4 @@
-import { Globe, Shield, Zap, Clipboard, Link, BarChart2 } from "lucide-react";
+import { Globe, Shield, Zap, Clipboard, Link, BarChart2 } from 'lucide-react';
 
 const features = [
   {
@@ -43,14 +43,15 @@ export default function Features() {
         {features.map((feature, index) => (
           <div
             key={index}
-            className="bg-emerald-800/50 backdrop-blur-sm rounded-lg p-6"
+            className="bg-gray-800/50 backdrop-blur-sm rounded-lg p-6"
           >
-            <feature.icon className="w-8 h-8 mb-4 text-lime-400" />
+            <feature.icon className="w-8 h-8 mb-4 text-blue-400" />
             <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
-            <p className="text-emerald-100">{feature.description}</p>
+            <p className="text-gray-300">{feature.description}</p>
           </div>
         ))}
       </div>
     </div>
   );
 }
+

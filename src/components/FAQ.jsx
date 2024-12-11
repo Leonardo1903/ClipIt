@@ -40,12 +40,12 @@ function FAQ() {
         <AccordionItem
           key={index}
           value={`item-${index}`}
-          className="border-b border-emerald-700"
+          className="border-b border-blue-400/30"
         >
-          <AccordionTrigger className="text-left hover:text-lime-400 transition-colors">
+          <AccordionTrigger className="text-left hover:text-blue-400 transition-colors">
             {item.question}
           </AccordionTrigger>
-          <AccordionContent className="text-emerald-100">
+          <AccordionContent className="text-blue-200">
             {item.answer}
           </AccordionContent>
         </AccordionItem>

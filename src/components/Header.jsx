@@ -10,7 +10,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { LinkIcon, LogOut } from "lucide-react";
+import { LinkIcon, LogOut } from 'lucide-react';
 
 export default function Header() {
   const navigate = useNavigate();
@@ -18,12 +18,12 @@ export default function Header() {
   const user = false;
 
   return (
-    <header className="w-full py-6 px-4 backdrop-blur-sm bg-emerald-800/50">
+    <header className="w-full py-6 px-4 backdrop-blur-sm bg-gray-800/50">
       <div className="container mx-auto flex justify-between items-center">
         <Link to="/" className="flex items-center">
           <img src={Logo} className="h-16" alt="ClipIt Logo" />
           <h1 className="text-3xl font-bold ml-4">
-            Clip<span className="text-lime-400">It</span>
+            Clip<span className="text-blue-400">It</span>
           </h1>
         </Link>
 
@@ -31,8 +31,7 @@ export default function Header() {
           {!user ? (
             <Button
               variant="outline"
-              className="bg-emerald-700/50 
-              text-lime-400 hover:bg-emerald-600/50 border-none "
+              className="bg-gray-700/50 text-blue-400 hover:bg-gray-600/50 border-none "
               onClick={() => navigate("/auth")}
             >
               Sign In
@@ -64,3 +63,4 @@ export default function Header() {
     </header>
   );
 }
+
