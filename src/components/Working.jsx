@@ -28,7 +28,7 @@ export default function Working() {
       <div className="grid md:grid-cols-3 gap-8">
         {steps.map((step, index) => (
           <div key={index} className="flex flex-col items-center text-center">
-            <div className="bg-amber-500 rounded-full p-4 mb-4">
+            <div className="bg-lime-500 rounded-full p-4 mb-4">
               <step.icon className="w-8 h-8 text-emerald-900" />
             </div>
             <h4 className="text-xl font-semibold mb-2">{step.title}</h4>

@@ -23,7 +23,7 @@ export default function Header() {
         <Link to="/" className="flex items-center">
           <img src={Logo} className="h-16" alt="ClipIt Logo" />
           <h1 className="text-3xl font-bold ml-4">
-            Clip<span className="text-amber-400">It</span>
+            Clip<span className="text-lime-400">It</span>
           </h1>
         </Link>
 
@@ -31,7 +31,8 @@ export default function Header() {
           {!user ? (
             <Button
               variant="outline"
-              className="bg-emerald-700/50 hover:bg-emerald-600/50 border-none text-amber-400"
+              className="bg-emerald-700/50 
+              text-lime-400 hover:bg-emerald-600/50 border-none "
               onClick={() => navigate("/auth")}
             >
               Sign In

@@ -22,7 +22,7 @@ export default function Hero() {
     <>
       <div className="text-center mb-16">
         <h2 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold mb-4 leading-tight">
-          Shorten, Share, <span className="text-amber-400">Simplify</span>
+          Shorten, Share, <span className="text-lime-400">Simplify</span>
         </h2>
         <p className="text-xl text-emerald-100 max-w-2xl mx-auto">
           ClipIt: The ultimate URL shortener for streamlined sharing and
@@ -43,7 +43,7 @@ export default function Hero() {
               />
               <Button
                 type="submit"
-                className="bg-amber-500 hover:bg-amber-600 text-emerald-900"
+                className="bg-lime-500 hover:bg-lime-600 text-zinc-900"
               >
                 Shorten Now
               </Button>
@@ -54,7 +54,7 @@ export default function Hero() {
                 <Button
                   size="sm"
                   variant="ghost"
-                  className="text-amber-400 hover:text-amber-300"
+                  className="text-lime-400 hover:text-lime-300"
                   onClick={() => navigator.clipboard.writeText(shortUrl)}
                 >
                   <Clipboard className="w-4 h-4 mr-2" />

@@ -17,11 +17,11 @@ export default function Example() {
         <div className="space-y-4">
           <h4 className="text-xl font-semibold">Shortened URL</h4>
           <div className="p-4 bg-emerald-700/50 rounded-md flex items-center justify-between">
-            <span className="text-amber-400">https://clipit.com/ab1c2d</span>
+            <span className="text-lime-400">https://clipit.com/ab1c2d</span>
             <Button
               size="sm"
               variant="ghost"
-              className="text-amber-400 hover:text-amber-300"
+              className="text-lime-400 hover:text-lime-300"
             >
               <ExternalLink className="w-4 h-4 mr-2" />
               Visit

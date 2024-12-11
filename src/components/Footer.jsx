@@ -4,10 +4,10 @@ export default function Footer() {
     <div className="container mx-auto text-center text-emerald-100">
       <p>© 2024 ClipIt. All rights reserved.</p>
       <div className="mt-2">
-        <a href="#" className="text-amber-400 hover:text-amber-300 mx-2">
+        <a href="#" className="text-lime-400 hover:text-lime-300 mx-2">
           Terms of Service
         </a>
-        <a href="#" className="text-amber-400 hover:text-amber-300 mx-2">
+        <a href="#" className="text-lime-400 hover:text-lime-300 mx-2">
           Privacy Policy
         </a>
       </div>

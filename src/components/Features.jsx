@@ -45,7 +45,7 @@ export default function Features() {
             key={index}
             className="bg-emerald-800/50 backdrop-blur-sm rounded-lg p-6"
           >
-            <feature.icon className="w-8 h-8 mb-4 text-amber-400" />
+            <feature.icon className="w-8 h-8 mb-4 text-lime-400" />
             <h4 className="text-xl font-semibold mb-2">{feature.title}</h4>
             <p className="text-emerald-100">{feature.description}</p>
           </div>
