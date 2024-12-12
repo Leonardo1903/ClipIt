@@ -1,5 +1,6 @@
 import Header from "./Header";
 import Footer from "./Footer";
+import ProtectedRoutes from "./ProtectedRoutes";
 import Error from "./Error";
 import Hero from "./Hero";
 import Features from "./Features";
@@ -12,6 +13,7 @@ import Signup from "./Signup";
 export {
   Header,
   Footer,
+  ProtectedRoutes,
   Error,
   Hero,
   Features,

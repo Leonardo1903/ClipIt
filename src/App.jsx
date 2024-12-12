@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
 import "./App.css";
 import { Auth, Dashboard, Landing, Link, RedirectLink } from "./pages";
+import SessionProvider from "./context/SesssionContext";
+import { ProtectedRoutes } from "./components";
 
 const router = createBrowserRouter([
   {
@@ -17,11 +19,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard",
-        element: <Dashboard />,
+        element: (
+          <ProtectedRoutes>
+            <Dashboard />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/link/:id",
-        element: <Link />,
+        element: (
+          <ProtectedRoutes>
+            <Link />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "/:id",
@@ -32,7 +42,11 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  return <RouterProvider router={router} />;
+  return (
+    <SessionProvider>
+      <RouterProvider router={router} />
+    </SessionProvider>
+  );
 }
 
 export default App;
