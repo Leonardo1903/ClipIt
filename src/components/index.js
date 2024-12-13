@@ -9,6 +9,8 @@ import Example from "./Example";
 import FAQ from "./FAQ";
 import Login from "./Login";
 import Signup from "./Signup";
+import LinkCard from "./LinkCard";
+import CreateLink from "./CreateLink";
 
 export {
   Header,
@@ -22,4 +24,6 @@ export {
   FAQ,
   Login,
   Signup,
+  LinkCard,
+  CreateLink,
 };
