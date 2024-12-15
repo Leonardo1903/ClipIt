@@ -42,33 +42,33 @@ export default function Dashboard() {
   );
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 bg-gray-900 text-gray-100 p-6">
       {(loadingUrls || loadingClicks) && (
         <div className="flex items-center justify-center h-20">
-          <Loader2 className="w-10 h-10 animate-spin" />
+          <Loader2 className="w-10 h-10 animate-spin text-blue-400" />
         </div>
       )}
-      <div className="grid grid-cols-2 gap-4">
-        <Card>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <Card className="bg-gray-800 border-gray-700">
           <CardHeader>
-            <CardTitle>Links Created</CardTitle>
+            <CardTitle className="text-blue-400">Links Created</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{urls?.length || 0}</p>
+            <p className="text-2xl font-bold">{urls?.length || 0}</p>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="bg-gray-800 border-gray-700">
           <CardHeader>
-            <CardTitle>Total Clicks</CardTitle>
+            <CardTitle className="text-blue-400">Total Clicks</CardTitle>
           </CardHeader>
           <CardContent>
-            <p>{clicks?.length || 0}</p>
+            <p className="text-2xl font-bold">{clicks?.length || 0}</p>
           </CardContent>
         </Card>
       </div>
 
-      <div className="flex justify-between">
-        <h1 className="text-4xl font-semibold">My Links</h1>
+      <div className="flex justify-between items-center">
+        <h1 className="text-4xl font-semibold text-blue-400">My Links</h1>
         <CreateLink />
       </div>
       <div className="relative">
@@ -77,22 +77,21 @@ export default function Dashboard() {
           value={searchQuery}
           placeholder="Search Links"
           onChange={(e) => setSearchQuery(e.target.value)}
+          className="bg-gray-800 border-gray-700 text-gray-100 placeholder-gray-400"
         />
-        <Filter className="absolute top-2 right-2 p-1" />
+        <Filter className="absolute top-2 right-2 p-1 text-gray-400" />
         {errorUrls && <Error message={errorUrls.message} />}
         {errorClicks && <Error message={errorClicks.message} />}
       </div>
-      <ul>
-        {(filteredUrls || []).map((url) => {
-          return (
-            <LinkCard
-              key={url.id}
-              url={url}
-              fetchUrls={fnGetUrls}
-              userId={user?.id}
-            />
-          );
-        })}
+      <ul className="space-y-4">
+        {(filteredUrls || []).map((url) => (
+          <LinkCard
+            key={url.id}
+            url={url}
+            fetchUrls={fnGetUrls}
+            userId={user?.id}
+          />
+        ))}
       </ul>
     </div>
   );

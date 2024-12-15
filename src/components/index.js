@@ -11,6 +11,8 @@ import Login from "./Login";
 import Signup from "./Signup";
 import LinkCard from "./LinkCard";
 import CreateLink from "./CreateLink";
+import LocationStats from "./LocationStats";
+import DeviceStats from "./DeviceStats";
 
 export {
   Header,
@@ -26,4 +28,6 @@ export {
   Signup,
   LinkCard,
   CreateLink,
+  LocationStats,
+  DeviceStats,
 };

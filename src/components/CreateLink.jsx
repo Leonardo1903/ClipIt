@@ -97,11 +97,13 @@ export default function CreateLink() {
       }}
     >
       <DialogTrigger>
-        <Button>Create Link</Button>
+        <Button className="bg-blue-500 hover:bg-blue-600 text-white">
+          Create Link
+        </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-md">
+      <DialogContent className="sm:max-w-md bg-gray-800 text-gray-100">
         <DialogHeader>
-          <DialogTitle>Create New Link</DialogTitle>
+          <DialogTitle className="text-blue-400">Create New Link</DialogTitle>
         </DialogHeader>
         {formValues?.longUrl && (
           <QRCode value={formValues?.longUrl} size={250} ref={qrRef} />
@@ -111,6 +113,7 @@ export default function CreateLink() {
           placeholder="Short Link's Title"
           value={formValues.title}
           onChange={handleChange}
+          className="bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400"
         />
         {errors.title && <Error message={errors.title} />}
         <Input
@@ -118,23 +121,31 @@ export default function CreateLink() {
           placeholder="Enter Long Url"
           value={formValues.longUrl}
           onChange={handleChange}
+          className="bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400"
         />
         {errors.longUrl && <Error message={errors.longUrl} />}
         <div className="flex items-center gap-2">
-          <Card className="px-3 py-2">{shortLink}</Card>
+          <Card className="px-3 py-2 bg-gray-700 text-gray-100">
+            {shortLink}
+          </Card>
           <Input
             id="customUrl"
             placeholder="Enter Custom Url (Optional)"
             value={formValues.customUrl}
             onChange={handleChange}
+            className="bg-gray-700 border-gray-600 text-gray-100 placeholder-gray-400"
           />
         </div>
         {error && <Error message={error.message} />}
         <DialogFooter className="sm:justify-start">
-          <Button disabled={loading} onClick={createUrl}>
+          <Button
+            disabled={loading}
+            onClick={createUrl}
+            className="bg-blue-500 hover:bg-blue-600 text-white"
+          >
             {loading ? (
               <>
-                <Loader2 className="w-6 h-6 animate-spin" />
+                <Loader2 className="w-6 h-6 animate-spin mr-2" />
                 Creating ...
               </>
             ) : (
