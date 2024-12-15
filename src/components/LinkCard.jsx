@@ -43,7 +43,8 @@ export default function LinkCard({ url, fetchUrls, userId }) {
           {url?.title}
         </span>
         <span className="text-2xl text-blue-400 font-bold hover:underline cursor-pointer">
-          {shortUrl + (url?.custom_url ? url?.custom_url : url.short_url)}
+          {"https://ClipIt/" +
+            (url?.custom_url ? url?.custom_url : url.short_url)}
         </span>
         <span className="flex items-center gap-1 hover:underline cursor-pointer text-gray-300">
           <LinkIcon className="p-1" />
