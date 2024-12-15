@@ -18,9 +18,10 @@ import { QRCode } from "react-qrcode-logo";
 import useFetch from "@/hooks/useFetch";
 import { dbService } from "@/supabase/db";
 import { Loader2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 export default function CreateLink() {
-  const shortLink = import.meta.env.VITE_SHORT_URL;
+  const { toast } = useToast();
   const { user } = useSession();
   const navigate = useNavigate();
   const qrRef = useRef();
@@ -78,6 +79,11 @@ export default function CreateLink() {
         formValues.customUrl,
         blob
       );
+      toast({
+        title: "Link Created",
+        description: "Your link has been created successfully",
+        status: "default",
+      })
     } catch (e) {
       const newErrors = {};
 
@@ -86,6 +92,11 @@ export default function CreateLink() {
       });
 
       setErrors(newErrors);
+      toast({
+        title: "Error",
+        description: "Error creating link",
+        status: "destructive",
+      })
     }
   };
 

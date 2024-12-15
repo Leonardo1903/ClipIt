@@ -8,12 +8,14 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Copy, Download, LinkIcon, Loader2, Trash2 } from "lucide-react";
 import { useNavigate, useParams } from "react-router-dom";
 import { DeviceStats, LocationStats } from "@/components";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Link() {
   const shortLink = import.meta.env.VITE_SHORT_URL;
   const { id } = useParams();
   const { user } = useSession();
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const { loading, data, error, fn: fnGetUrl } = useFetch(dbService.getUrl);
   const {
@@ -35,6 +37,11 @@ export default function Link() {
     navigator.clipboard.writeText(
       shortLink + (data?.custom_url ? data?.custom_url : data?.short_url)
     );
+    toast({
+      title: "Copied to clipboard",
+      description: "The shortened URL has been copied to the clipboard",
+      status: "default",
+    });
   };
 
   const handleDownload = () => {
@@ -51,6 +58,15 @@ export default function Link() {
   const handleDelete = () => {
     fnDeleteUrl(data?.id);
     navigate("/dashboard");
+    toast({
+      title: "URL Deleted",
+      description: "The URL has been deleted successfully",
+      variant:"default",
+    });
+  };
+
+  const handleRedirect = () => {
+    navigate(`/${data?.id}`);
   };
 
   if (error) {
@@ -74,14 +90,13 @@ export default function Link() {
           <span className="text-6xl font-extrabold hover:underline cursor-pointer">
             {data?.title}
           </span>
-          <a
-            href={`${shortLink}${link}`}
-            target="_blank"
+          <span
+            onClick={handleRedirect}
             className="text-3xl sm:text-4xl text-blue-400 font-bold hover:underline cursor-pointer"
           >
             https://ClipIt/
             {link}
-          </a>
+          </span>
           <a
             href={`${data?.original_url}`}
             target="_blank"

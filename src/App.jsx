@@ -1,9 +1,10 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import AppLayout from "./layouts/AppLayout";
-import "./App.css";
 import { Auth, Dashboard, Landing, Link, RedirectLink } from "./pages";
 import SessionProvider from "./context/SesssionContext";
 import { ProtectedRoutes } from "./components";
+import { Toaster } from "@/components/ui/toaster";
+import "./App.css";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,7 @@ function App() {
   return (
     <SessionProvider>
       <RouterProvider router={router} />
+      <Toaster />
     </SessionProvider>
   );
 }

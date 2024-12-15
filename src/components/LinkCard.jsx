@@ -3,9 +3,11 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import useFetch from "@/hooks/useFetch";
 import { dbService } from "@/supabase/db";
+import { useToast } from "@/hooks/use-toast";
 
 export default function LinkCard({ url, fetchUrls, userId }) {
   const shortUrl = import.meta.env.VITE_SHORT_URL;
+  const { toast } = useToast();
   const { loading: loadingDelete, fn: fnDeleteUrl } = useFetch(
     dbService.deleteUrl
   );
@@ -14,6 +16,11 @@ export default function LinkCard({ url, fetchUrls, userId }) {
     navigator.clipboard.writeText(
       shortUrl + (url?.custom_url ? url?.custom_url : url.short_url)
     );
+    toast({
+      title: "Copied to clipboard",
+      description: "URL copied to clipboard",
+      status: "default",
+    })
   };
 
   const handleDownload = () => {
@@ -29,6 +36,11 @@ export default function LinkCard({ url, fetchUrls, userId }) {
 
   const handleDelete = () => {
     fnDeleteUrl(url?.id).then(() => fetchUrls(userId));
+    toast({
+      title: "URL Deleted",
+      description: "URL has been deleted",
+      status: "default",
+    })
   };
 
   return (

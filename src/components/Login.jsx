@@ -16,9 +16,11 @@ import useFetch from "@/hooks/useFetch";
 import { authService } from "@/supabase/auth";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSession } from "@/context/SesssionContext";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Login() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   let [searchParams] = useSearchParams();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -62,6 +64,11 @@ export default function Login() {
         abortEarly: false,
       });
       await fnLogin(formData.email, formData.password);
+      toast({
+        title: "Login Successful",
+        description: "You have successfully logged in",
+        status: "default",
+      });
     } catch (e) {
       const newErrors = {};
 
@@ -70,6 +77,11 @@ export default function Login() {
       });
 
       setErrors(newErrors);
+      toast({
+        title: "Error",
+        description: "There was an error logging in",
+        status: "destructive",
+      });
     }
   };
 
@@ -78,7 +90,7 @@ export default function Login() {
       <CardHeader className="space-y-1">
         <CardTitle className="text-2xl font-bold text-center">Login</CardTitle>
         <CardDescription className="text-center text-gray-300">
-        Welcome back! Login to your account
+          Welcome back! Login to your account
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

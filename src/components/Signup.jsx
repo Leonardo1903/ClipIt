@@ -16,9 +16,11 @@ import useFetch from "@/hooks/useFetch";
 import { authService } from "@/supabase/auth";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSession } from "@/context/SesssionContext";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Signup() {
   const navigate = useNavigate();
+  const { toast } = useToast();
   let [searchParams] = useSearchParams();
   const [errors, setErrors] = useState({});
   const [formData, setFormData] = useState({
@@ -70,7 +72,17 @@ export default function Signup() {
       await schema.validate(formData, {
         abortEarly: false,
       });
-      await fnRegister(formData.name, formData.email, formData.password, formData.profile_pic);
+      await fnRegister(
+        formData.name,
+        formData.email,
+        formData.password,
+        formData.profile_pic
+      );
+      toast({
+        title: "Account Created",
+        description: "Your account has been created successfully",
+        status: "default",
+      })
     } catch (e) {
       const newErrors = {};
 
@@ -79,6 +91,11 @@ export default function Signup() {
       });
 
       setErrors(newErrors);
+      toast({
+        title: "Error",
+        description: "There was an error creating your account",
+        status: "destructive",
+      })
     }
   };
 
