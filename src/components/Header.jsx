@@ -14,9 +14,11 @@ import { LinkIcon, Loader2, LogOut } from "lucide-react";
 import { useSession } from "@/context/SesssionContext";
 import { authService } from "@/supabase/auth";
 import useFetch from "@/hooks/useFetch";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Header() {
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const { user, fnGetCurrentUser } = useSession();
 
@@ -26,6 +28,10 @@ export default function Header() {
     fnLogout().then(() => {
       fnGetCurrentUser();
       navigate("/");
+      toast({
+        title: "Success",
+        message: "Logged out successfully",
+      });
     });
   };
 
