@@ -126,7 +126,7 @@ export default function CreateLink() {
         {errors.longUrl && <Error message={errors.longUrl} />}
         <div className="flex items-center gap-2">
           <Card className="px-3 py-2 bg-gray-700 text-gray-100">
-            {shortLink}
+            https://ClipIt/
           </Card>
           <Input
             id="customUrl"
